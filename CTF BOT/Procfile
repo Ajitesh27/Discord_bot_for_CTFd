@@ -1,0 +1,1 @@
+worker: python ctf_bot.py
