@@ -1,8 +1,0 @@
-selenium
-bs4
-validate_email
-discord.py
-asyncio
-lxml
-py3DNS
-pytz
