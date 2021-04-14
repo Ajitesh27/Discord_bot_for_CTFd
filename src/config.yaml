@@ -1,0 +1,15 @@
+credential:
+  token: "ODI3OTI0MTAyNzE0ODg0MTI2.YGiGaA.XLDkNiyp02VsbLiNZLfqZVJg5RA"
+  secret: "CHANGE_ME_LATER_PLS"
+  role: "Admin"
+
+timeline:
+  freeze: 9608706274
+  end: 9608708274
+
+score:
+  maximal: 500
+  minimal: 100
+  decay: 20
+
+dburl: "postgres://postgres:postgresql@localhost:5432/mydb"
