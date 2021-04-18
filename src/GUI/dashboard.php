@@ -1,3 +1,17 @@
+<?php
+function get_rows() {
+$file=fopen("scoreboard.txt",'r');
+while($line = fgets($file)){
+	$line=trim($line);
+	list($serial,$team,$points,$solves) = explode('|',$line);
+	echo "<tr><td align=\"center\">$serial</td><td align=\"center\">$team</td><td align=\"center\">$solves</td><td align=\"center\">$points</td></tr>\n";
+}
+return true;
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>    
@@ -7,7 +21,7 @@
     <style>
 .tab {
     display: inline-block;
-    margin-left: 400px;
+    margin-left: 900px;
 }
 </style>
     <title>Discord Bot Dashboard</title>
@@ -20,20 +34,12 @@
 <!-- the left navigation  -->
 
             <div class = 'col-2 p-2 bg-dark text-light shadow-lg' id = 'left_navigation'>
-                <a href='https://discord.com/'>               
+<a href='https://discord.com/'>               
  <img src="discord.jpg" height="200" width="250" ></a>
+                
                 <p class='text-muted mt-2'><small>PES OOAD Project </small></p>
 
-<!-- key word search  -->
 
-                <div class="input-group my-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-search text-light"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Keyword Search" id = 'search' autofocus>
-                </div>
-
-                <br>
 
 <!-- side bar navigation  -->
 
@@ -46,13 +52,13 @@
                             <br>
                             <ul class = 'my-2'>
                                 <li>
-                                    <a href='Categories.html' onclick="view_categories()">View Categories</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="view_categories()">View Categories</a>
                                 </li>
                                 <li>
-                                    <a href='challenges.html' onclick="view_challenges()">View Challenges</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="view_challenges()">View Challenges</a>
                                 </li>
                                 <li>
-                                    <a href='/' onclick="Add challenges()">Add Challenges</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="Add challenges()">Add Challenges</a>
                                 </li>
                                 
                             </ul>
@@ -66,7 +72,7 @@
                             <br>
                             <ul class = 'my-2'>
                                 <li>
-                                    <a href='/' onclick="help()">Help Manual</a>
+                                    <a href='help.html' onclick="help()">Help Manual</a>
                                 </li>
                                 
                             </ul>
@@ -83,15 +89,12 @@
             <div class = 'col-10 p-2 bg-light shadow-lg float-left' id = 'work_area'>
 
                 <h1 class = 'text-center text-muted'>CTF Dashboard</h1>
-                <h1 class = 'text-center text-muted'>Categories</h1>
+                <h1 class = 'text-center text-muted'>Score card</h1>
 
 <!-- the top navigation -->
 
                 <div>
-                    <button type="button" id='button_issue' onclick= 'Add_challenges()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" >Add New</button>
-<span class="tab"></span>
-<input type="button" onclick="location.href='dashboard.html';" value="Dashboard" />
-
+ 
                    <span class="tab"></span>
                    <button type="button"  id='button_issue' onclick="location.href='login.html';" class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" float='right'>Log Out</button>
                 </div>
@@ -103,33 +106,18 @@
                     <table class="table table-striped mt-4">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">S.NO</th>
-                            <th scope="col"> Name</th>
-                            <th scope="col"># of questions</th>
-                            <th scope="col"># of Solves</th>
-                            <th scope="col">Action</th>
+                            <th class="text-center">Rank</th>
+                            <th class="text-center">Team Name</th>
+                            <th class="text-center">Number of Solves</th>
+                            <th class="text-center">Points</th>
+                            
+                           
                             
                         </tr>
                         </thead>
                         <tbody id = 'table'>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Cryptography</td>
-                            <td>15</td>
-                            <td>30</td>
-                            <td><button type="button" id='button_issue' onclick= 'Add_challenges()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" >Delete</button></td>
-                            
-                            
-                        </tr>
-<tr>
-                            <th scope="row">2</th>
-                            <td>SQL</td>
-                            <td>15</td>
-                            <td>25</td>
-                           <td><button type="button" id='button_issue' onclick= 'Add_challenges()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" >Delete</button></td>
-                            
-                            
-                        </tr>
+
+                        <?php get_rows(); ?>
                     </table>
                 </div>
 

@@ -29,7 +29,7 @@ def start():
         response = task_controller.release_task(task_id)
         await ctx.send(response)
 
-    @bot.command(name='hide-task', help='Hide a challenge.')
+    @bot.command(name='hide-challenge', help='Hide a challenge. Format: >>hide-challenge <challenge_id>')
     @commands.has_role(credential.role)
     async def hide_task(ctx, task_id: int):
         response = task_controller.hide_task(task_id)
@@ -41,7 +41,7 @@ def start():
         response = task_controller.delete_task(task_id)
         await ctx.send(response)
     
-    @bot.command(name='submit', help='Submit flag. ')
+    @bot.command(name='submit', help='Submit flag. Format: >>submit <flag>')
     async def submit(ctx, flag: str):
         response = audit_controller.submit(str(ctx.author.id), flag)
         await ctx.send(response)
@@ -51,14 +51,14 @@ def start():
         response = view_controller.challenges()
         await ctx.send(embed=response)
 
-    @bot.command(name='challenges-info', help='Get challenges info.')
+    @bot.command(name='challenges-info', help='Get challenges info. Format: >>chllenges-info <name>')
     async def challenges_info(ctx, name: str):
         response = view_controller.challenges_info(name)
         await ctx.send(embed=response)
 
-    @bot.command(name='scoreboard', help='1-10 Scoreboard. Format: >>scoreboard')
+    @bot.command(name='scoreboard', help='Update scoreboard. Format: >>scoreboard')
     async def scoreboard(ctx):
-        response = view_controller.scoreboard_before_freeze()
-        await ctx.send(embed=response)
+        response=view_controller.scoreboard_before_freeze()
+        await ctx.send(response)
 
     bot.run(credential.token)

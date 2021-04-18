@@ -71,15 +71,18 @@ def scoreboard_before_freeze():
     
     sorted_scoreboard = dict(sorted(scoreboard.items(), key=lambda item: item[1]))
     count = 1
-    data = '```py\n'
+    data = ''
     for x in sorted_scoreboard:
         if count > 10:
             break
         team = team_database.find_team_data(x)
-        data += f'{count}. {team.name} [{sorted_scoreboard[x]}]\n'
-    data += '```'
-    card = Embed(title='Scoreboard', description=data, color=discord.Color.blue())
+        data += f'{count}|{team.name}|{sorted_scoreboard[x]}|{audit_database.number_of_solves_team(x)}\n'
+    
+    file = open("C:\\Users\Prajna\Desktop\XAMPP1\htdocs\GUI\scoreboard.txt", "w")
+    file.write("%s" %(data))
 
+    file.close()
+    card = "Scoreboard Updated"
     return card
 
 

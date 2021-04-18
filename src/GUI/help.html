@@ -25,16 +25,7 @@
                 
                 <p class='text-muted mt-2'><small>PES OOAD Project </small></p>
 
-<!-- key word search  -->
 
-                <div class="input-group my-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-search text-light"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Keyword Search" id = 'search' autofocus>
-                </div>
-
-                <br>
 
 <!-- side bar navigation  -->
 
@@ -47,13 +38,13 @@
                             <br>
                             <ul class = 'my-2'>
                                 <li>
-                                    <a href='Categories.html' onclick="view_categories()">View Categories</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="view_categories()">View Categories</a>
                                 </li>
                                 <li>
-                                    <a href='challenges.html' onclick="view_challenges()">View Challenges</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="view_challenges()">View Challenges</a>
                                 </li>
                                 <li>
-                                    <a href='/' onclick="Add challenges()">Add Challenges</a>
+                                    <a href='https://discord.com/channels/827925862472613888/827929037094912020' onclick="Add challenges()">Add Challenges</a>
                                 </li>
                                 
                             </ul>
@@ -67,7 +58,7 @@
                             <br>
                             <ul class = 'my-2'>
                                 <li>
-                                    <a href='/' onclick="help()">Help Manual</a>
+                                    <a href='help.html' onclick="help()">Help Manual</a>
                                 </li>
                                 
                             </ul>
@@ -83,17 +74,17 @@
 
             <div class = 'col-10 p-2 bg-light shadow-lg float-left' id = 'work_area'>
 
-                <h1 class = 'text-center text-muted'>CTF Dashboard</h1>
-                <h1 class = 'text-center text-muted'>Score card</h1>
+                <h1 class = 'text-center text-muted'>Help Manual</h1>
 
+                
 <!-- the top navigation -->
 
-                <div>
-                    <button type="button" id='button_issue' onclick= 'Add_challenges()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" >Add New</button>
- 
+                
+ <button type="button"  id='button_issue' onclick="location.href='dashboard.php';" class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" float='right'>Dashboard</button>
+                
                    <span class="tab"></span>
                    <button type="button"  id='button_issue' onclick="location.href='login.html';" class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg" float='right'>Log Out</button>
-                </div>
+                
 
 
 <!-- start of the table display -->
@@ -102,37 +93,24 @@
                     <table class="table table-striped mt-4">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Team Name</th>
-                            <th scope="col">Team Leader</th>
-                            <th scope="col"># of Solves</th>
-                            <th scope="col">Team Members</th>
-                            <th scope="col">Total Points</th>
+                            <th class="text-center">Command</th>
+                            <th class="text-center">Description</th>
+                            
                            
                             
                         </tr>
                         </thead>
                         <tbody id = 'table'>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>The Hackers</td>
-                            <td>Ajitesh</td>
-                            <td>9</td>
-                            <td>Ajitesh, Aayush</td>
-                            
-                            <td>900</td>
-                            
-                        </tr>
-<tr>
-                            <th scope="row">2</th>
-                            <td>CTF experts</td>
-                            <td>Shashank</td>
-                            <td>7</td>
-                            <td>Shashank, Rakesh</td>
-                            <td>700</td>
-                            
-                            
-                        </tr>
+<tr><td align="center">register</td><td align="center">Register your team. Format: >>register &lt;team_name></td></tr>
+<tr><td align="center">login</td><td align="center">Login with team token. Format: >>login &lt;team_token></td></tr>
+<tr><td align="center">create-challenge</td><td align="center">Format: >>create-challenge &lt;name> &lt;category> &lt;description> &lt;files> &lt;flag></td></tr>
+<tr><td align="center">release-challenge</td><td align="center">Format: >>release-challenge &lt;challenge_id></td></tr>
+<tr><td align="center">hide-challenge</td><td align="center">Hide a challenge. Format: >>hide-challenge &lt;challenge_id></td></tr>
+<tr><td align="center">delete-challenge</td><td align="center">Format: >>delete-challenge &lt;challenge_id></td></tr>
+<tr><td align="center">submit</td><td align="center">Submit flag. Format: >>submit &lt;flag></td></tr>
+<tr><td align="center">challenges</td><td align="center">List all challenges. Format: >>challenges</td></tr>
+<tr><td align="center">challenges-info</td><td align="center">Get challenges info. Format: >>chllenges-info &lt;name></td></tr>
+<tr><td align="center">scoreboard</td><td align="center">Update scoreboard. Format: >>scoreboard</td></tr>                       
                     </table>
                 </div>
 

@@ -45,6 +45,11 @@ def number_of_solves():
     data = s.query(Audit).filter(Audit.task_id > 0).all()
     return [i.task_id for i in data]
 
+def number_of_solves_team(team_id):
+    data=s.query(Audit).filter_by(team_id=team_id).count()
+    return data
+    
+
 def firstblood(task_id):
     data = s.query(Audit).filter_by(task_id=task_id).order_by(Audit.id).first()
     return data
